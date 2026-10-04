@@ -1,0 +1,163 @@
+/** Every string in the site. Ported from the `T` and `UI` objects in index.html. */
+export const en = {
+  proto: "Prototype · events, artists and numbers are example data",
+  brand: "Beit Al-Fann Live",
+  skip: "Skip to content",
+
+  nav: {
+    home: "Home",
+    events: "Events",
+    residency: "Residency",
+    artists: "Artists",
+    house: "The House",
+    request: "Request a room",
+  },
+
+  heroEyebrow: "Weekly debate · this Thursday",
+  heroTitle: "Old meets new",
+  heroSub:
+    "Established and emerging artists in one room, talking about art in Amman, 7–9 pm. Filmed and posted by our media team.",
+  heroMeta:
+    "Thursday 29 October · Beit Al-Fann, Prince Muhammad St., downtown Amman",
+  spots: "Free spots",
+  rsvp: "Reserve a free spot",
+  seeSpace: "See the space",
+
+  p1t: "Weekly debates",
+  p1d: "Old and new artists in conversation every Thursday, to reach every generation.",
+  p2t: "Artistic residency",
+  p2d: "الإقامة الفنية: a 3-week art program inside the house.",
+  p3t: "Art workshops",
+  p3d: "Artists teach painting and embroidery (الرسم والتطريز). 12 seats each.",
+  upNext: "Coming up",
+  allEvents: "All events",
+
+  evTitle: "What's on at the house",
+
+  callEyebrow: "الإقامة الفنية · applications close 20 October",
+  callTitle: "Artistic residency: 3 weeks at the house",
+  callDesc:
+    "Spend three weeks making new work inside Beit Al-Fann, share your process with visitors, and finish with an open studio night. Painting, embroidery, calligraphy, photography, print.",
+  fName: "Full name",
+  fAge: "Age",
+  fDisc: "Discipline",
+  choose: "Choose…",
+  disciplines: [
+    "Painting",
+    "Embroidery",
+    "Calligraphy",
+    "Photography",
+    "Print / illustration",
+  ],
+  fIg: "Instagram (optional)",
+  fFiles: "Up to 3 works (JPG or PNG)",
+  fStmt: "What will you make during the 3 weeks? (50–300 words)",
+  fRules:
+    "I agree to install with the freestanding kit only: nothing fixed to walls, floors or arches.",
+  submit: "Send application",
+  doneT: "Application received",
+  doneD:
+    "Our management team replies within 10 days. In the real service you would get a confirmation email.",
+  howT: "How selection works",
+  howD: "Our management team and a guest artist pick 4 residents per round, based on the plan for the 3 weeks, craft, and readiness to work in public.",
+  getT: "What you get",
+  getD: "A room at the house for 3 weeks, materials supported by our sponsors, an open studio night, a profile on this site, and coverage of your work by our media team.",
+  pickFiles: "Choose images",
+  noFiles: "No images chosen yet",
+  words: "words",
+
+  artTitle: "Old and new artists at the house",
+  artNote: "Example profiles",
+
+  spEyebrow: "How the house will run",
+  spTitle: "Five zones, one team",
+  planNote:
+    "Schematic, not to scale. Plot 1,269 m²; building 402 m² over two floors. Tap a zone.",
+  willT: "We will",
+  will: [
+    "Use freestanding, weighted panels and light stands",
+    "Lay the deck on rubber feet over the existing paving",
+    "Cap capacity per room and keep food outdoors",
+    "Brief every artist on heritage rules before install",
+    "Get GAM heritage committee approval before the pilot",
+  ],
+  neverT: "We will never",
+  never: [
+    "Drill, nail, glue or paint original walls, tiles or arches",
+    "Alter the façade, openings or the twin spiral staircase",
+    "Add floors, extensions or permanent structures",
+    "Move or lend the heritage collection",
+    "Play amplified sound past agreed limits or hours",
+  ],
+  lawNote:
+    "Urban and Architectural Heritage Protection Law No. 5 of 2005: Art. 11 bans damage to heritage sites; Art. 12 requires prior committee approval for any change or addition.",
+
+  bookEyebrow: "For artists",
+  bookTitle: "Request a room for your workshop",
+  bookDesc:
+    "Send your request, our management team reviews and approves it, then our media team announces the details. Replies within 5 working days.",
+  fGroup: "Your name or group",
+  fSpaceSel: "Space",
+  spaces: [
+    "Courtyard stage",
+    "Workshop room (upper floor)",
+    "Ground-floor gallery",
+  ],
+  fDate: "Date",
+  fPeople: "Expected people",
+  fWhat: "What will you teach?",
+  sendReq: "Send request",
+  reqT: "Request sent",
+  reqD: "You'll hear back within 5 working days. Once approved, we announce your workshop on our pages.",
+  steps: ["Request", "Approve", "Announce"],
+  hoursT: "Proposed hours",
+  h1: "Sat–Wed",
+  h2: "Thursday",
+  h3: "Friday",
+  h3v: "Workshops only, 14:00–19:00",
+  whereT: "Where",
+  whereD:
+    "Beit Al-Fann (Jordan House of Art), Prince Muhammad St., downtown Amman. Built in the 1920s, later Al-Zahra' Girls' School, run by Greater Amman Municipality since 2002.",
+  capsT: "Room capacities",
+  capsN: "Proposed caps, to confirm with GAM.",
+
+  foot: "Beit Al-Fann Live · student innovation prototype for the Jordan House of Art (Greater Amman Municipality). Not an official GAM website.",
+
+  ui: {
+    filters: {
+      all: "All",
+      late: "Weekly debates",
+      workshop: "Workshops",
+      show: "Residency",
+    },
+    left: (n: number) => `${n} left`,
+    full: "Full",
+    waitlist: "Join waitlist",
+    drop: "Drop in, no booking",
+    reserve: "Reserve",
+    reserved: "Reserved",
+    toastR: "Spot reserved. Show this screen at the door.",
+    toastW: "Added to the waitlist.",
+    days: "days",
+    hrs: "hours",
+    min: "min",
+    now: "Today",
+    live: "With the program",
+    rm: "Run by",
+    cost: "Supported by",
+    fix: "Solves",
+    zone: "Zone",
+    buy: "Ask about this work",
+    toastBuy: "Request sent to the artist.",
+    errReq: "Fill this in.",
+    errAge: "Open to ages 18–30.",
+    errFiles: "Add 1 to 3 images.",
+    errStmt: "Write 50–300 words",
+    errRules: "Please agree to the heritage rules.",
+    errDate: "Pick a future date.",
+    errPpl: "Courtyard max 120, gallery 40, workshop room 12.",
+    lang: "عربي",
+  },
+};
+
+export type Copy = typeof en;

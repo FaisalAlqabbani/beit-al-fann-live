@@ -1,0 +1,309 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------------
+   Beit Al-Fann Live — tokens
+   Palette carried over from the pitch deck: cream, ink, rust.
+   --------------------------------------------------------------------------- */
+:root {
+  --ink: #14100e;
+  --stone: #f7f3ec;
+  --rust: #a8432a;
+  --ember: #e2683c;
+  --saffron: #e8b04a;
+  --teal: #2f6f66;
+  --plum: #5b2a4a;
+
+  /* surfaces — light is the default, dark follows the system below */
+  --bg: var(--stone);
+  --surface: #fffdf8;
+  --surface-2: #efe8db;
+  --line: #ddd2bf;
+  --fg: #1a1512;
+  --muted: #6b6052;
+  --accent: var(--rust);
+  --accent-ink: #fff8f1;
+
+  /* zone colours for the plan */
+  --zone-a: #a8432a;
+  --zone-b: #2b332f;
+  --zone-c: #4b5650;
+  --zone-d: #2f6f66;
+  --zone-e: #b4862f;
+  --ground: #e3dac8;
+  --zone-off: #cfc5b2;
+  --zone-off-ink: #6b6052;
+
+  --radius: 14px;
+  --bay: 1180px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #100d0b;
+    --surface: #1a1512;
+    --surface-2: #231c18;
+    --line: #342b24;
+    --fg: #f2ebe0;
+    --muted: #a2968a;
+    --accent: var(--ember);
+    --accent-ink: #19100c;
+
+    --zone-a: #c9603a;
+    --zone-b: #313a35;
+    --zone-c: #4f5c56;
+    --zone-d: #3f8d7f;
+    --zone-e: #cf9b3c;
+    --ground: #221c18;
+    --zone-off: #2e2721;
+    --zone-off-ink: #8d8278;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #100d0b;
+  --surface: #1a1512;
+  --surface-2: #231c18;
+  --line: #342b24;
+  --fg: #f2ebe0;
+  --muted: #a2968a;
+  --accent: var(--ember);
+  --accent-ink: #19100c;
+
+  --zone-a: #c9603a;
+  --zone-b: #313a35;
+  --zone-c: #4f5c56;
+  --zone-d: #3f8d7f;
+  --zone-e: #cf9b3c;
+  --ground: #221c18;
+  --zone-off: #2e2721;
+  --zone-off-ink: #8d8278;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-ink: var(--ink);
+  --color-stone: var(--stone);
+  --color-rust: var(--rust);
+  --color-ember: var(--ember);
+  --color-saffron: var(--saffron);
+  --color-teal: var(--teal);
+  --color-plum: var(--plum);
+
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-line: var(--line);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+
+  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-display-ar: var(--font-reem), var(--font-plex), sans-serif;
+  --font-body: var(--font-plex), "Segoe UI", Tahoma, sans-serif;
+}
+
+/* ---------------------------------------------------------------------------
+   Base
+
+   These must sit in `@layer base`. Unlayered CSS outranks every layer in the
+   cascade, so a bare `a { color: inherit }` would beat Tailwind's utilities
+   and silently break every text-colour class applied to a link.
+   --------------------------------------------------------------------------- */
+@layer base {
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-plex), "Segoe UI", Tahoma, sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  line-height: 1.08;
+  text-wrap: balance;
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 600;
+  /* Fraunces variable axes: soft terminals, a touch of wonk. */
+  font-variation-settings: "SOFT" 28, "WONK" 1;
+  letter-spacing: -0.015em;
+}
+
+/* Arabic headings use Reem Kufi; Fraunces has no Arabic coverage. */
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3 {
+  font-family: var(--font-reem), var(--font-plex), sans-serif;
+  font-variation-settings: normal;
+  letter-spacing: 0;
+  line-height: 1.3;
+}
+
+p {
+  margin: 0;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid var(--saffron);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+::selection {
+  background: var(--saffron);
+  color: #19100c;
+}
+}
+
+/* ---------------------------------------------------------------------------
+   Utilities — deliberately unlayered so they win over Tailwind utilities.
+   --------------------------------------------------------------------------- */
+.bay {
+  width: 100%;
+  max-width: var(--bay);
+  margin-inline: auto;
+  padding-inline: clamp(18px, 4vw, 40px);
+}
+
+/* The eyebrow is a route/record label, not decoration — it stays small
+   and tracked only in Latin, where tracking helps. */
+.eyebrow {
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+[dir="rtl"] .eyebrow {
+  letter-spacing: 0;
+  text-transform: none;
+  font-size: 14px;
+}
+
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.18;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Numerals in both scripts read better tabular in meters and countdowns. */
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+/* The hero entrance runs on CSS, not rAF. A tab opened in the background
+   throttles requestAnimationFrame, which would freeze a JS-driven reveal
+   mid-flight and leave the headline invisible; CSS animations advance on the
+   document timeline and are simply finished when the tab is shown. */
+@keyframes bafl-rise {
+  from {
+    transform: translateY(105%);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@keyframes bafl-fade {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.rise {
+  display: inline-block;
+  animation: bafl-rise 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.fade-up {
+  animation: bafl-fade 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes bafl-fill {
+  from {
+    width: 0;
+  }
+  to {
+    width: var(--pct, 0%);
+  }
+}
+
+.meter-fill {
+  width: var(--pct, 0%);
+  animation: bafl-fill 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  transition: width 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rise {
+    animation: none;
+  }
+  .fade-up {
+    animation: bafl-fade 0.001ms both;
+  }
+  .meter-fill {
+    animation: none;
+  }
+}
+
+input[type="date"],
+input[type="number"] {
+  /* keep native pickers left-to-right even in Arabic */
+  direction: ltr;
+  text-align: start;
+}
+
+[dir="rtl"] input[type="date"],
+[dir="rtl"] input[type="number"] {
+  text-align: right;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
